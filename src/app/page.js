@@ -1,6 +1,43 @@
 "use client";
+import { PostOwner } from "@/components/PostOwner";
+import { Reply } from "@/components/Reply";
+import { comments } from "@/libs/comments";
 
 export default function HomePage() {
+  const reply = [
+    {
+    id =1
+      userImagePath: '/profileImages/puppy.jpg', 
+    username: 'หมาน้อย',
+    replyText: "จริงค้าบบบบบบบบ", 
+    likeNum: 0
+  },
+  {
+    id=2
+    userImagePath: '/profileImages/popcat.png', 
+    username: 'Cat Meme',
+    replyText: "ลิซ่าาาาาาา", 
+    likeNum: 2
+  }
+  ]
+  const comments = [
+    {
+      imagePath: '/profileImages/lisa.jpg',
+      name:'Lisa',
+      text:"จริงค่า",
+      like: 399,
+      reply:''
+    },
+    {
+      imagePath: '/profileImages/charlibrown.jpg',
+      name:'Charlie Brown',
+      text:"บ้าไปแล้ว",
+      reply:''
+    } 
+  ]
+  
+
+
   return (
     <div
       style={{ minHeight: "100vh", backgroundColor: "ghostwhite" }}
@@ -12,75 +49,47 @@ export default function HomePage() {
         className="mx-auto p-3 rounded rounded-3 shadow-sm bg-white"
       >
         {/* Post Owner Example*/}
-        <div className="vstack gap-3">
-          <div className="d-flex align-items-center gap-3">
-            <img
-              src="/profileImages/handsome.jpg"
-              width="48"
-              height="48"
-              className="rounded-circle"
-              style={{ objectFit: "cover" }}
-            />
-            <span className="fw-semibold fs-5">Chayanin Suatap 650610560</span>
-          </div>
-
-          <span>Quiz ง่ายจังเลยครับ ขอยาก ๆ กว่านี้ได้ไหม #261207</span>
-
-          <div className="d-flex align-items-center gap-1">
-            <img src="/like.svg" width={20}></img>
-            <span className="text-muted">100 คน</span>
-          </div>
-          <hr className="m-0 border" />
-        </div>
+        <PostOwner
+          ownerImagePath="/profileImages/profilepic.jpg"
+          ownerName="Nunnapat Sirithanachokpaisan 650610776"
+          likeNum="100"
+          status="Quiz ง่ายจังเลยครับ ขอยาก ๆ กว่านี้ได้ไหม #261207"
+        ></PostOwner>
+      
 
         {/* Comment Example */}
-        <div className="d-flex gap-2 my-2">
-          <img
-            src="/profileImages/lisa.jpg"
-            width="48"
-            height="48"
-            className="rounded-circle"
-            style={{ objectFit: "cover" }}
-          />
-          <div
-            className="rounded rounded-3 p-2"
-            style={{ backgroundColor: "#E5E7EB" }}
-          >
-            <span className="fw-semibold">Lisa</span>
-            <br />
-            <span>จริงค่า</span>
-            <div className="d-flex align-items-center gap-1">
-              <img src="/like.svg" width={20}></img>
-              <span className="text-muted">999 คน</span>
-            </div>
-          </div>
-        </div>
+        <Comment
+          userImagePath="/profileImages/lisa.jpg"
+          username="Lisa"
+          commentText="จริงค่า"
+          likeNum="399"
+        ></Comment>
 
         {/* Reply Example */}
-        <div className="d-flex gap-2 my-2 ps-5">
-          <img
-            src="/profileImages/puppy.jpg"
-            width="48"
-            height="48"
-            className="rounded-circle"
-            style={{ objectFit: "cover" }}
-          />
-          <div
-            className="rounded rounded-3 p-2"
-            style={{ backgroundColor: "#E5E7EB" }}
-          >
-            <span className="fw-semibold">หมาน้อย</span>
-            <br />
-            <span>จริงค้าบบบบบบบบ</span>
-            <div className="d-flex align-items-center gap-1">
-              <img src="/like.svg" width={20}></img>
-              <span className="text-muted">2 คน</span>
-            </div>
-          </div>
-        </div>
-
+        <Reply
+          userImagePath="/profileImages/puppy.jpg"
+          username="หมาน้อย"
+          replyText="จริงค้าบบบบบบบบ"
+          
+        ></Reply>
+        <Reply
+          userImagePath="/profileImages/popcat.png"
+          username="Cat Meme"
+          replyText="ลิซ่าาาาาาา"
+          likeNum="2"
+        ></Reply>
+        
+      {comments.map((user) => (
+        <Comment
+        userImagePath={user.imagePath}
+        username={user.name}
+        commentText={user.text}
+        likeNum={user.like}
+        replies={user.reply}
+        ></Comment>
+      ))}
         {/* map-loop render Comment component here */}
-      </div>
+    </div>
     </div>
   );
 }
