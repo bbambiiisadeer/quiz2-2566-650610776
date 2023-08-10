@@ -48,36 +48,6 @@ export default function HomePage() {
         style={{ maxWidth: "700px" }}
         className="mx-auto p-3 rounded rounded-3 shadow-sm bg-white"
       >
-        {/* Post Owner Example*/}
-        <PostOwner
-          ownerImagePath="/profileImages/profilepic.jpg"
-          ownerName="Nunnapat Sirithanachokpaisan 650610776"
-          likeNum="100"
-          status="Quiz ง่ายจังเลยครับ ขอยาก ๆ กว่านี้ได้ไหม #261207"
-        ></PostOwner>
-      
-
-        {/* Comment Example */}
-        <Comment
-          userImagePath="/profileImages/lisa.jpg"
-          username="Lisa"
-          commentText="จริงค่า"
-          likeNum="399"
-        ></Comment>
-
-        {/* Reply Example */}
-        <Reply
-          userImagePath="/profileImages/puppy.jpg"
-          username="หมาน้อย"
-          replyText="จริงค้าบบบบบบบบ"
-          
-        ></Reply>
-        <Reply
-          userImagePath="/profileImages/popcat.png"
-          username="Cat Meme"
-          replyText="ลิซ่าาาาาาา"
-          likeNum="2"
-        ></Reply>
         
       {comments.map((user) => (
         <Comment
