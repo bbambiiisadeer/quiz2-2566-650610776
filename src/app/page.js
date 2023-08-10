@@ -48,7 +48,7 @@ export default function HomePage() {
         style={{ maxWidth: "700px" }}
         className="mx-auto p-3 rounded rounded-3 shadow-sm bg-white"
       >
-        
+      
       {comments.map((user) => (
         <Comment
         userImagePath={user.imagePath}
