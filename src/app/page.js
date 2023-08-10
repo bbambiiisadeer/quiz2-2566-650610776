@@ -5,19 +5,16 @@ import { comments } from "@/libs/comments";
 
 export default function HomePage() {
   const reply = [
-    {
-    id =1
-      userImagePath: '/profileImages/puppy.jpg', 
+    {userImagePath: '/profileImages/puppy.jpg', 
     username: 'หมาน้อย',
     replyText: "จริงค้าบบบบบบบบ", 
     likeNum: 0
   },
   {
-    id=2
     userImagePath: '/profileImages/popcat.png', 
     username: 'Cat Meme',
-    replyText: "ลิซ่าาาาาาา", 
-    likeNum: 2
+    replyText: "ลิซ่าาาาาา", 
+    likeNum: /
   }
   ]
   const comments = [
@@ -25,7 +22,7 @@ export default function HomePage() {
       imagePath: '/profileImages/lisa.jpg',
       name:'Lisa',
       text:"จริงค่า",
-      like: 399,
+      like:'399',
       reply:''
     },
     {
@@ -48,7 +45,24 @@ export default function HomePage() {
         style={{ maxWidth: "700px" }}
         className="mx-auto p-3 rounded rounded-3 shadow-sm bg-white"
       >
+        {/* Post Owner Example*/}
+        <PostOwner
+          ownerImagePath="/profileImages/profilepic.jpg"
+          ownerName="Nunnapat Sirithanachokpaisan 650610776"
+          likeNum="100"
+          status="Quiz ง่ายจังเลยครับ ขอยาก ๆ กว่านี้ได้ไหม #261207"
+        ></PostOwner>
       
+
+        {/* Comment Example */}
+        <Comment
+          userImagePath="/profileImages/lisa.jpg"
+          username="Lisa"
+          commentText="จริงค่า"
+          likeNum="399"
+        ></Comment>
+
+        
       {comments.map((user) => (
         <Comment
         userImagePath={user.imagePath}
